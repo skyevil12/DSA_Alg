@@ -1,3 +1,5 @@
+import list.*;
+
 //Use circular array
 //Access & Remove from head and insert in tail
 class ArrayQueue<E> implements Queue<E> {
@@ -27,7 +29,7 @@ class ArrayQueue<E> implements Queue<E> {
 		return mElementArray[mStartIndex];
 	}
 	
-	public void enque(E e) throws FullCapacityException {
+	public void enqueue(E e) throws FullCapacityException {
 		if(mValidSize >= SIZE) {
 			throw new FullCapacityException();
 		}
@@ -40,7 +42,7 @@ class ArrayQueue<E> implements Queue<E> {
 		}
 	}
 	
-	public E deque() throws EmptyException {
+	public E dequeue() throws EmptyException {
 		if(isEmpty()) {
 			throw new EmptyException();
 		}
@@ -74,25 +76,92 @@ class ArrayQueue<E> implements Queue<E> {
 	public static void main(String... args) {
 		ArrayQueue queue = new ArrayQueue();
 		for(int i = 0; i < 10; i++) {		
-			queue.enque(i);
+			queue.enqueue(i);
 		}
 		
 		System.out.println(queue);
 		
 		for(int i = 0; i < 5; i++) {		
-			queue.deque();
+			queue.dequeue();
 		}
 		
 		System.out.println(queue);
 		
 		for(int i = 0; i < 5; i++) {		
-			queue.enque(i);
+			queue.enqueue(i);
 		}
 		
 		System.out.println(queue);
 		
 		for(int i = 0; i < 5; i++) {		
-			queue.deque();
+			queue.dequeue();
+		}
+		
+		System.out.println(queue);
+	}
+}
+
+class SListQueue<E> implements Queue<E> {
+	private SList mList;
+	
+	SListQueue() {
+		mList = new SList();
+	}
+	
+	public int size() {
+		return mList.length();
+	}
+	
+	public boolean isEmpty() {
+		return mList.isEmpty();
+	}
+	
+	public E first(){
+		return (E)mList.front().item();
+	}
+	
+	public void enqueue(E e) {
+		mList.insertBack(e);
+	}
+
+	public E dequeue() {
+		if(mList.isEmpty()) {
+			throw new EmptyException();
+		}
+		
+		ListNode first = mList.front();
+		E target = (E)first.item();
+		first.remove();
+		return target;
+	}
+	
+	@Override
+	public String toString() {
+		return "SListQueue: " + mList;
+	}
+
+	public static void main(String... args) {
+		SListQueue queue = new SListQueue();
+		for(int i = 0; i < 10; i++) {		
+			queue.enqueue(i);
+		}
+		
+		System.out.println(queue);
+		
+		for(int i = 0; i < 5; i++) {		
+			queue.dequeue();
+		}
+		
+		System.out.println(queue);
+		
+		for(int i = 0; i < 5; i++) {		
+			queue.enqueue(i);
+		}
+		
+		System.out.println(queue);
+		
+		for(int i = 0; i < 5; i++) {		
+			queue.dequeue();
 		}
 		
 		System.out.println(queue);
@@ -103,8 +172,8 @@ interface Queue<E> {
 	int size();
 	boolean isEmpty();
 	E first();
-	void enque(E e);
-	E deque();
+	void enqueue(E e);
+	E dequeue();
 }
 
 class EmptyException extends RuntimeException {

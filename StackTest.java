@@ -1,3 +1,5 @@
+import list.*;
+
 class ArrayStack<E> implements Stack<E> {
 	private static final int SIZE = 1000;
 	private E[] mElementArray;
@@ -60,6 +62,54 @@ class ArrayStack<E> implements Stack<E> {
 	
 	public static void main(String... args) {
 		ArrayStack as = new ArrayStack();
+		as.push(1);
+		as.push(2);
+		as.push(3);
+		as.push(4);
+		//as.pop();
+		
+		System.out.println(as);
+	}
+}
+
+class SListStack<E> implements Stack<E> {
+	private SList mList;
+	
+	SListStack() {
+		mList = new SList();
+	}
+	
+	public E pop() {
+		ListNode front = mList.front();
+		E target = (E)front.item();
+		front.remove();
+		
+		return target;
+	}
+	
+	public void push(E e) {
+		mList.insertFront(e);
+	}
+	
+	public boolean isEmpty() {
+		return mList.isEmpty();
+	}
+	
+	public int size() {
+		return mList.length();
+	}
+	
+	public E top() {
+		return (E)mList.front().item();
+	}
+	
+	@Override
+	public String toString() {
+		return "SListStack: " + mList;
+	}
+	
+	public static void main(String... args) {
+		SListStack as = new SListStack();
 		as.push(1);
 		as.push(2);
 		as.push(3);
