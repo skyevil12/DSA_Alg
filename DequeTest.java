@@ -1,3 +1,5 @@
+import list.*;
+
 class ArrayDeque<E> implements Deque<E> {
 	private static final int SIZE = 100;
 	private E[] mElementArray;
@@ -106,6 +108,84 @@ class ArrayDeque<E> implements Deque<E> {
 	
 	public static void main(String... args) {
 		ArrayDeque queue = new ArrayDeque();
+		for(int i = 0; i < 10; i++) {		
+			queue.addLast(i);
+		}
+		
+		System.out.println(queue);
+		
+		for(int i = 0; i < 5; i++) {		
+			queue.removeFirst();
+		}
+		
+		System.out.println(queue);
+		
+		for(int i = 0; i < 5; i++) {		
+			queue.addFirst(i);
+		}
+		
+		System.out.println(queue);
+		
+		for(int i = 0; i < 5; i++) {		
+			queue.removeLast();
+		}
+		
+		System.out.println(queue);
+	}
+}
+
+class DListDeque<E> implements Deque<E> {
+	DList mList;
+	
+	DListDeque() {
+		mList = new DList();
+	}
+	
+	public int size() {
+		return mList.length();
+	}
+	
+	public boolean isEmpty() {
+		return mList.isEmpty();
+	}
+	
+	public E first() {
+		return (E)mList.front().item();
+	}
+	
+	public E last() {
+		return (E)mList.back().item();
+	}
+	
+	public void addFirst(E e) {
+		mList.insertFront(e);
+	}
+	
+	public void addLast(E e) {
+		mList.insertBack(e);
+	}
+	
+	public E removeFirst() {
+		DListNode first = (DListNode)mList.front();
+		E target = (E)first.item();
+		first.remove();
+		return target;
+	}
+	
+	public E removeLast() {
+		DListNode first = (DListNode)mList.back();
+		E target = (E)first.item();
+		first.remove();
+		return target;
+	}
+	
+	@Override
+	public String toString() {		
+		return "DListDeque: " + mList;
+	}
+	
+	public static void main(String... args) {
+		DListDeque queue = new DListDeque();
 		for(int i = 0; i < 10; i++) {		
 			queue.addLast(i);
 		}

@@ -1,2 +1,2 @@
-javac -g *.java
-java -ea ArrayDeque
+javac -g List/*.java *.java
+java -ea DListDeque
