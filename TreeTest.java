@@ -1,4 +1,4 @@
-import java.util.Iterator;
+import java.util.*;
 
 public class TreeTest {
 	public static void main(String... args) {
@@ -49,14 +49,39 @@ abstract class AbstractTree<E> implements Tree<E> {
 
 abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements BinaryTree<E> {
 	public Position<E> sibling(Position<E> p) {
-		return null;
+		Position<E> parent = parent(p);
+		if(null == parent) {
+			return null;
+		}
+		
+		if(p == left(parent)) {
+			return right(parent);
+		} else {
+			return left(parent);
+		}
 	}
 	
 	public int numChildren(Position<E> p) {
-		return -1;
+		int count = 0;
+		if(null != left(p)) {
+			count++;
+		}
+		
+		if(null != right(p)) {
+			count++;
+		}
+		return count;
 	}
 	
 	public Iterable<Position<E>> children(Position<E> p) {
-		return null;
+		List<Position<E>> snapShot = new ArrayList<>(2);
+		if(null != left(p)) {
+			snapShot.add(left(p));
+		}
+		
+		if(null != right(p)) {
+			snapShot.add(right(p));
+		}
+		return snapShot;
 	}
 }
