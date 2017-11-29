@@ -45,6 +45,57 @@ abstract class AbstractTree<E> implements Tree<E> {
 
 		return 1 + depth(parent(p));
 	}
+	
+	public Iterator<E> iterator() {
+		return new ElementIterator();
+	}
+	
+	public Iterable<Position<E>> positions() {
+		return preorder();
+	}
+	
+	private class ElementIterator implements Iterator<E> {
+		Iterator<Position<E>> posIterator = positions().iterator();
+		public boolean hasNext() { return posIterator.hasNext(); }
+		public E next() { return posIterator.next().getElement(); }
+		public void remove() { posIterator.remove(); }
+	}
+	
+	private void preorderSubtree(Position<E> p, List<Position<E>> snapShot) {
+		snapShot.add(p);
+		
+		for(Position<E> c: children(p)) {
+			preorderSubtree(c, snapShot);
+		}
+	}
+	
+	public Iterable<Position<E>> preorder() {
+		List<Position<E>> snapShot = new ArrayList();
+		
+		if(!isEmpty()) {
+			preorderSubtree(root(), snapShot);
+		}
+		
+		return snapShot;
+	}
+	
+	private void postorderSubtree(Position<E> p, List<Position<E>> snapShot) {
+		for(Position<E> c: children(p)) {
+			postorderSubtree(c, snapShot);
+		}
+	
+		snapShot.add(p);
+	}
+	
+	public Iterable<Position<E>> postorder() {
+		List<Position<E>> snapShot = new ArrayList();
+		
+		if(!isEmpty()) {
+			postorderSubtree(root(), snapShot);
+		}
+		
+		return snapShot;
+	}
 }
 
 abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements BinaryTree<E> {
