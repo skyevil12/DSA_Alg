@@ -10,6 +10,10 @@ class Node
     }
 }
  */
+ /* My guess
+ Time: O(N)
+ Space: Stack frame O(N)
+ */
 class Tree
 {
     int height(Node node) 
