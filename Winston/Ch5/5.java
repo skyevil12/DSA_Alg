@@ -1,6 +1,8 @@
 //Binary tree to heap
 //1. Binary search tree to min heap, inorder traverse to queue element, assign elements in preorder Time: O(n), Space O(n)
 //2. Reconstruct tree if original tree is not complete BST
+// Time O(N) 
+// Space O(N) + (2 *  O(N) (stack frame))
 
 import java.util.ArrayDeque;
 import java.util.Queue;

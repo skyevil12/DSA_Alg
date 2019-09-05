@@ -9,6 +9,7 @@
         left = right = null;
     }
 }*/
+// My Guess?
 class BST
 {   
     Node LCA(Node node, int n1, int n2) 

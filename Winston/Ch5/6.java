@@ -1,5 +1,8 @@
 /*package whatever //do not write package name here */
 //Traverse Inorder to get sorted array then output to complete BST
+//Time O(N)
+//Space O(N) + O(N)(stack frame)
+//?
 
 import java.util.*;
 import java.lang.*;
