@@ -14,6 +14,7 @@ class GFG {
 		}
 	}
 	
+	//Time O(N), Space O(N) at least
 	private static void reverseString(String in) {
 	    //back slash in rgx
 	    String[] inStrArray = mySplit(in, '.');//in.split("\\.");
@@ -32,6 +33,7 @@ class GFG {
 	    System.out.println("");
 	}
 	
+	//Time O(N), Space O(N)
 	private static String[] mySplit(String in, char ch) {
 	    List<String> rtStrList = new ArrayList();
 	    int cur = 0;
@@ -68,10 +70,12 @@ class GFG {
 	        }
 	    }
 	    
+	    //O(1)
 	    public boolean isEmpty() {
 	        return null == mNode;
 	    }
 	    
+	    //O(1)
 	    public void push(String str) {
 	        if(null == str) {
 	            return;
@@ -89,6 +93,7 @@ class GFG {
 	    
 	    private Node mLatest;
 	    
+	    //O(N)
 	    public String pop() {
 	        if(null == mLatest) {
 	            return null;
@@ -116,6 +121,7 @@ class GFG {
 	        return rt;
 	    }
 	    
+	    //O(1)
 	    public String peek() {
 	        if(null == mLatest) {
 	            return null;
