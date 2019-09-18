@@ -4,22 +4,22 @@
 class GFG 
 {
     //TIME O(N) 
-    //SPACE O(N)
+    //SPACE O(N) -> O(1)??
 static void removeChar(String s, char c) 
 { 
 	char[] charArray = s.toCharArray();
-	char[] rtArray = new char[s.length()];
 	int i = 0;
 	for(char ch : charArray) {
 	    if(ch == c) {
 	        continue;
 	    }
-	    rtArray[i++] = ch;
+	    charArray[i++] = ch;
 	}
 	
-	for(char ch : rtArray) {
+	int j = 0;
+	for(char ch : charArray) {
 	    //If ch is null
-	    if (ch == 0) {
+	    if (i == j++) {
 	        break;
 	    }
 	    System.out.print(ch);
@@ -33,7 +33,4 @@ public static void main(String[] args)
 	removeChar(s, 'g'); 
 } 
 } 
-
-// This code is contributed 
-// by ChitraNayal 
 
