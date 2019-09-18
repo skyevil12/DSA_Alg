@@ -73,6 +73,10 @@ class GFG {
 	    }
 	    
 	    public void push(String str) {
+	        if(null == str) {
+	            return;
+	        }
+	        
 	        Node node = new Node(str);
 	        if(null == mNode) {
 	            mNode = node;
