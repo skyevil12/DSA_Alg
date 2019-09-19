@@ -18,7 +18,6 @@ static void removeChar(String s, char c)
 	
 	int j = 0;
 	for(char ch : charArray) {
-	    //If ch is null
 	    if (i == j++) {
 	        break;
 	    }

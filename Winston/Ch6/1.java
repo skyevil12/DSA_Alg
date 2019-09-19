@@ -1,4 +1,5 @@
 /*package whatever //do not write package name here */
+//UTF 8, 16
 
 import java.util.*;
 import java.lang.*;

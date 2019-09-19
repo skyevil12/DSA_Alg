@@ -1,4 +1,5 @@
 /*package whatever //do not write package name here */
+//TODO: How about input words have '.'(split token)?
 
 import java.util.*;
 import java.lang.*;
@@ -33,7 +34,7 @@ class GFG {
 	    System.out.println("");
 	}
 	
-	//Time O(N), Space O(N)
+	//Time O(N), Space O(N). SubString? Time & Space??
 	private static String[] mySplit(String in, char ch) {
 	    List<String> rtStrList = new ArrayList();
 	    int cur = 0;
