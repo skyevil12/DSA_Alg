@@ -27,6 +27,7 @@ public class IntegerToAscii {
      */
     private static char[] itoa(int num) {
 		//new ArrayList<Character>
+		//TODO: How about no collection?
 		List<Character> rtList = new ArrayList<Character>();
         //Add '-' if negative
 		if(num < 0) {
@@ -40,8 +41,14 @@ public class IntegerToAscii {
 		}
 		Stack<Character> stack = new Stack<Character>();
 		//% 10 and /10 to get each number to stack
+		/*109
+		->9
+		10
+		->0
+		1
+		->1*/
 		while(tmp != 0) {
-			stack.push((char)((tmp % 10) + ASCII_VALUE_OF_ZERO));
+			stack.push((char)((tmp % 10) + '0'));
 			tmp /= 10;
 		}
 		
