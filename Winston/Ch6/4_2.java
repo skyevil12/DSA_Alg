@@ -1,4 +1,5 @@
-// Radix sort Java implementation 
+//TODO: consider if input is integer MAX or MIN?
+
 import java.io.*; 
 import java.util.*; 
 
@@ -32,7 +33,8 @@ public class IntegerToAscii {
 			rtList.add('-');
 		}
 		
-		int tmp = num;
+		//Use long here to consider integer max or min case
+		long tmp = num;
 		if(tmp < 0) {
 		    tmp *= -1;
 		}
