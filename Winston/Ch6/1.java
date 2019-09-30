@@ -19,14 +19,14 @@ class GFG {
 	//SPACE: O(N) => O(N) + O(1)
 	private static void outputNonrepetitionChar(String in) {
 	    //Ansi lower case is from 97 - 122
-	    int[] ansi = new int[26];
+	    int[] ansi = new int['z' - 'a' + 1];
 	    char[] inCharArray = in.toCharArray();
 	    for(char ch : inCharArray) {
-	        ansi[ch - 97] ++;
+	        ansi[ch - 'a'] ++;
 	    }
 	    
 	    for(char ch : inCharArray) {
-	        if(1 == ansi[ch - 97]) {
+	        if(1 == ansi[ch - 'a']) {
 	            System.out.println("" + ch);
 	            return;
 	        }
