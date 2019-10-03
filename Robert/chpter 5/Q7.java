@@ -85,11 +85,11 @@ class GFG {
 	private static int findBaconNumber(ActorGraphNode baconNode,ActorGraphNode targetNode) {
 
 		Set<ActorGraphNode> nextSetpSet = new HashSet<>();
-		nextSetpSet.add(baconNode);
-		return findBaconNumber(nextSetpSet,targetNode);
+		nextSetpSet.add(baconNode.getConnectedSet);
+		return findBaconNumber(0,nextSetpSet,targetNode);
 	}
 
-	private static int findBaconNumber(Set<ActorGraphNode> nodeSet,ActorGraphNode targetNode) {
+	private static int findBaconNumber(int step,Set<ActorGraphNode> nodeSet,ActorGraphNode targetNode) {
 		Set<ActorGraphNode> nextSetpSet = new HashSet<>();
 		for(ActorGraphNode node:nodeSet) {
 
@@ -97,14 +97,14 @@ class GFG {
 				continue;
 			}
 
-			node.setBaconNumber(node.getBaconNumber()+1);
+			node.setBaconNumber(step +1);
 			if(node.equals(targetNode)) {
 				return node.getBaconNumber();
 			}
 
 			nextSetpSet.addAll(node.getConnectedSet());
 		}
-		return findBaconNumber(nextSetpSet,targetNode);
+		return findBaconNumber(++step,stnextSetpSet,targetNode);
 	}
 
 }
