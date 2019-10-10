@@ -2,6 +2,7 @@ import java.util.*;
 
 // Java program to print all the permutations 
 // of the given string 
+// TIME O(N!) SPACE O(N)  
 public class GFG { 
 	public static String[] permutation(String test) {
         String[] rt = null;
