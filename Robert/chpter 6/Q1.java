@@ -1,5 +1,5 @@
 /*package whatever //do not write package name here */
-// 1. user Object replace count 
+// 1. user Object replace count ,OBject singleObject = new Object Object mulitObject .....
 // 2. string.codePointAt()
 
 import java.io.*;
@@ -17,7 +17,13 @@ class GFG {
 		Map<Character,Integer> charCountMap = new LinkedHashMap<>();
 
 		for(char mChar:charArray) {
-			Integer count = charCountMap.get(mChar);
+			Object object == charCountMap.get(mChar);
+			if(object == null){
+				charCountMap.put(mChar,singleObject);
+			}else if(object == singleObject){
+				charCountMap.put(mChar,mulitObject);
+			}
+)			Integer count = charCountMap.get(mChar);
 			if(count == null) {
 				charCountMap.put(mChar,1);
 

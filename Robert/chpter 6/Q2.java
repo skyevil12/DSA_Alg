@@ -3,7 +3,7 @@
 /*
 remove specific char from A String.
 
-Time complexity: O(n+m) ,Speace complexity: O(2n).
+Time complexity: O(n+m) ,Speace complexity: O(2n+128).
 
 */
 
